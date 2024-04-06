@@ -45,7 +45,7 @@ export const Home = () => {
             <meshPhongMaterial color="#0064ff" map={texture} />
           </RoundedBox>
         </Center> */}
-        <BoxLogo />
+        {/* <BoxLogo /> */}
 
         {/* <mesh position={[0, 0, 0.15]}>
           <circleGeometry args={[0.3, 64, 32]} />
@@ -67,7 +67,7 @@ export const Home = () => {
           <circleGeometry args={[0.1, 64, 32]} />
           <meshStandardMaterial color={'#fff'} />
         </mesh> */}
-        <Center position={[2, 0, 0]} rotation={[-0.2, 0.1, 0.1]}>
+        <Center rotation-y={rotateY} position={[0, 0, 0]} rotation={[-0.2, 0.1, 0.1]}>
           <Text3D
             curveSegments={32}
             bevelEnabled
@@ -80,7 +80,7 @@ export const Home = () => {
             font="/Inter_Bold.json"
           >
             {/* {'LIGIHT\nMINE\nFLO'} */}
-            {'CODE\nWAVE'}
+            {'RUSSO'}
             <meshNormalMaterial />
           </Text3D>
         </Center>
@@ -104,7 +104,7 @@ const BoxLogo = () => {
   return (
     <Center position={[-3, -0.7, 0.7]} rotation={[-0.2, 0.1, 0.1]}>
       <RoundedBox args={[2, 3, 1]} smoothness={4}>
-        <Decal position={[-0.1, 0, 0.5]} rotation={[0, 0.5, 0]} scale={[1, 1, 1]} map={texture} />
+        <Decal position={[-0.1, 0, 0.5]} rotation={[0, 0.5, 0]} scale={[1, 1, 0.8]} map={texture} />
         <meshStandardMaterial color={'#8C99FC'} />
       </RoundedBox>
     </Center>
