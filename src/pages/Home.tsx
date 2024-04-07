@@ -5,6 +5,7 @@ import {
   Cloud,
   Decal,
   Environment,
+  Float,
   MeshDiscardMaterial,
   OrbitControls,
   RoundedBox,
@@ -12,6 +13,7 @@ import {
   Stars,
   Text,
   Text3D,
+  useGLTF,
   useTexture,
 } from '@react-three/drei';
 import { useHome } from './Home.hook';
@@ -38,6 +40,7 @@ export const Home = () => {
           intensity={Math.PI}
         />
         <Stars />
+        <BoxTractor />
         {/* <mesh rotation-x={rotateX} rotation-y={rotateY} position={[0, 0, 0]}> */}
         {/* 
         <Center position={[-3, -0.7, 0]} rotation={[0.05, 0.2, 0.1]}>
@@ -45,7 +48,7 @@ export const Home = () => {
             <meshPhongMaterial color="#0064ff" map={texture} />
           </RoundedBox>
         </Center> */}
-        <BoxLogo />
+        {/* <BoxLogo /> */}
 
         {/* <mesh position={[0, 0, 0.15]}>
           <circleGeometry args={[0.3, 64, 32]} />
@@ -67,23 +70,6 @@ export const Home = () => {
           <circleGeometry args={[0.1, 64, 32]} />
           <meshStandardMaterial color={'#fff'} />
         </mesh> */}
-        <Center position={[2, 0, 0]} rotation={[-0.2, 0.1, 0.1]}>
-          <Text3D
-            curveSegments={32}
-            bevelEnabled
-            bevelSize={0.04}
-            bevelThickness={0.1}
-            height={0.5}
-            lineHeight={0.6}
-            letterSpacing={-0.06}
-            size={1.5}
-            font="/Inter_Bold.json"
-          >
-            {/* {'LIGIHT\nMINE\nFLO'} */}
-            {'CODE\nWAVE'}
-            <meshNormalMaterial />
-          </Text3D>
-        </Center>
         {/* <mesh rotation-x={rotateX} rotation-y={rotateY} position={[0, 0, 0]}>
           <boxGeometry args={[1.5, 1.5, 1.5]} />
           <meshStandardMaterial color="#fff" opacity={0.5} transparent={true} />
@@ -108,5 +94,15 @@ const BoxLogo = () => {
         <meshStandardMaterial color={'#8C99FC'} />
       </RoundedBox>
     </Center>
+  );
+};
+
+const BoxTractor = () => {
+  const { scene, animations } = useGLTF('/tractor.glb');
+
+  return (
+    <Float position={[0, 0, 0]} floatIntensity={0.1} speed={4} rotationIntensity={0.1}>
+      <primitive object={scene} scale={[1, 1, 1]} />
+    </Float>
   );
 };
